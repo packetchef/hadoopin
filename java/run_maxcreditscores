@@ -1,0 +1,19 @@
+#!/bin/bash
+rm *.class
+rm *.jar
+
+hdfs dfs -mkdir creditscores
+hdfs dfs -copyFromLocal creditscores.csv creditscores/creditscores.csv
+
+hdfs dfs -rm creditscores/reduced/*
+hdfs dfs -rmdir creditscores/reduced
+
+javac MaxCreditScores*.java -classpath $(hadoop classpath)
+jar cvf MaxCreditScores.jar MaxCreditScores*.class
+
+# Hortonworks hadoop user can't read user's dir
+cp MaxCreditScores*.jar /tmp/
+cd /tmp
+hadoop jar MaxCreditScores.jar MaxCreditScores creditscores/creditscores.csv creditscores/reduced
+
+
