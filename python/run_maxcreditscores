@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# can't use /usr/bin/env in source files
+
+HDP_VER=$(hdp-select | grep -v None | awk '{ print $3 }' | sort | uniq | tail -n1)
+
+hdfs dfs -mkdir creditscores
+hdfs dfs -copyFromLocal creditscores.csv creditscores/creditscores.csv
+
+hdfs dfs -rm creditscores/reduced/*
+hdfs dfs -rmdir creditscores/reduced
+
+hadoop jar /usr/hdp/$HDP_VER/hadoop-mapreduce/hadoop-streaming.jar -files MaxCreditScoresMapper.py,MaxCreditScoresReducer.py -mapper MaxCreditScoresMapper.py -reducer MaxCreditScoresReducer.py -input creditscores/creditscores.csv -output creditscores/reduced
+
