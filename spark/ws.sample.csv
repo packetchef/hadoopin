@@ -1,0 +1,7 @@
+record_number,date_time,user_id,category_name,disposition,url_hostname,dst_port,src_ip,dst_ip,bytes_sent,bytes_received
+39500029805426,2014-06-23 08:05:05.0000,ID-Sn14670d,Productivity: Advertisements,Blocked,ad.crwdcntrl.net,80,10.10.ip.ip,199.233.57.14,4101,180
+39600001328054,2014-06-23 11:26:11.0000,ID-Sn67507d,Productivity: Advertisements,Blocked,ad.doubleclick.net,80,10.10.ip.ip,173.194.43.27,606,60
+39600006859800,2014-06-23 13:09:15.0000,ID-Sn46427d,Information Technology,Permitted,157.56.51.125,443,10.10.ip.ip,157.56.51.125,2296,6617
+39600003233523,2014-06-23 12:04:04.0000,ID-Sn56352d,Business and Economy: Hosted Business Applications,Permitted,content.dl-rms.com,80,10.10.ip.ip,12.129.199.104,519,2676
+39600004076090,2014-06-23 12:17:15.0000,ID-Sn56352d,Information Technology: Search Engines and Portals,Permitted,www.google.com,80,10.10.ip.ip,74.125.228.209,1772,1456
+
